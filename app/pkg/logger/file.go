@@ -22,13 +22,13 @@ func NewLog() *logrus.Logger {
 
 	f, lvl, err := getOptionLog(*wf, *l)
 	if err != nil {
-		logrus.Debug(err)
+		log.Debug(err)
 	}
 
-	logrus.SetOutput(f)
+	log.SetOutput(f)
 
 	if *wf {
-		logrus.SetLevel(lvl)
+		log.SetLevel(lvl)
 	}
 
 	return log
@@ -39,7 +39,7 @@ func getOptionLog(y bool, name string) (io.Writer, logrus.Level, error) {
 	var err error
 	var lvl logrus.Level
 
-	f, err = getFileLog(y, "")
+	f, err = getFileLog(y, "all")
 	switch name {
 	case "DEBUG":
 		f, err = getFileLog(y, "debug")
@@ -63,13 +63,13 @@ func getFileLog(y bool, name string) (io.Writer, error) {
 	var err error
 
 	if name == "error" {
-		f = os.Stdout
-	} else {
 		f = os.Stderr
+	} else {
+		f = os.Stdout
 	}
 
-	if y {
-		f, err = os.Open(name + ".log")
+	if y && name != "all" {
+		f, err = os.OpenFile("./log/"+name+".log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 		if err != nil {
 			logrus.Debug(err)
 			return nil, err
