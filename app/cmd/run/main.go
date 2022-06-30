@@ -22,6 +22,8 @@ func main() {
 		DBName:   "test",
 	}
 
+	log.Info("config: ", cnfDB)
+
 	db, err := sql.Open(cnfDB.Type, cnfDB.GetDSN())
 	if err != nil {
 		log.Fatal(err)
