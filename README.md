@@ -6,9 +6,9 @@ Learning to use the level log
 логирования на всех уровнях.<br/>
 ## Запуск<br/>
 Склонируйте репозирорий<br/>
-`git clone https://github.com/maikwork/lvlog`<br/>
+<p>&nbsp</p>`git clone https://github.com/maikwork/lvlog`<br/>
 Перейти в папку репозитория<br/>
-`cd lvlog`<br/>
+<p>&nbsp</p>`cd lvlog`<br/>
 Запуск docker-compose<br/>
-`docker-compose up`<br/>
-*Убедитесь, что у вас не занят 5432 порт*
+<p>&nbsp</p>`docker-compose up`<br/><br/>
+**Убедитесь, что у вас не занят 5432 порт**
