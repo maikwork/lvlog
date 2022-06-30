@@ -11,3 +11,4 @@ Learning to use the level log
 `cd lvlog`<br/>
 Запуск docker-compose<br/>
 `docker-compose up`<br/>
+*Убедитесь, что у вас не занят 5432 порт*
